@@ -1,59 +1,100 @@
-# WhatsApp API (Node.js + TypeScript + Baileys)
+# 🚀 WhatsApp API Pro
 
-A high-performance, unofficial WhatsApp API built with Node.js and TypeScript. It uses the `Baileys` library to talk directly to WhatsApp's servers, making it faster and more memory-efficient than browser-based solutions.
+A production-grade WhatsApp API and Management Dashboard built with **Node.js**, **TypeScript**, and **Baileys**. This project provides a robust RESTful interface for WhatsApp automation and a modern React-based frontend for monitoring and management.
 
-## Features
-- **TypeScript Support**: Full type safety and modern syntax.
-- **Protocol-Based**: No browser needed (Low RAM/CPU).
-- **Session Persistence**: Supports existing `creds.json` files.
-- **Sync Contacts**: Automatically retrieves all synced contacts.
-- **Send Messages**: Fast message delivery to any phone number.
-- **Postman Collection**: Pre-configured for easy testing.
+---
 
-## Installation
+## 🏗️ Project Architecture
 
-1. **Install Dependencies**:
-   ```bash
-   npm install
-   ```
+```mermaid
+graph TD
+    A[React Dashboard] -->|REST API| B[Express Server]
+    B -->|Baileys Bridge| C[WhatsApp Servers]
+    B -->|Local Storage| D[Auth Info & History]
+```
 
-2. **Setup Credentials (Optional)**:
-   If you have an existing `creds.json` file:
-   - Place your `creds.json` file directly in the project root folder.
+### Key Components
+- **Backend**: Express + TypeScript + Baileys (Protocol-based, no browser needed).
+- **Frontend**: Vite + React + TypeScript + Vanilla CSS.
+- **Data**: Automatic session persistence and contact syncing.
 
-## Usage
+---
 
-1. **Start the Server**:
-   ```bash
-   npm start
-   ```
-   The API will be available at `http://localhost:3000`.
+## ⚡ Quick Start
 
-2. **Login**:
-   - If you don't have a session, a **QR Code** will appear in your terminal.
-   - Scan it with your WhatsApp mobile app.
+### 1. Installation
+Clone the repository and install dependencies for both backend and frontend:
 
-3. **Check Status**:
-   - `GET http://localhost:3000/status`
+```bash
+# Install Backend dependencies
+npm install
 
-4. **List Contacts**:
-   - `GET http://localhost:3000/contacts`
+# Install Frontend dependencies
+cd client
+npm install
+cd ..
+```
 
-5. **Send a Message**:
-   - `POST http://localhost:3000/send`
-   - Body (JSON):
-     ```json
-     {
-       "phone": "1234567890",
-       "message": "Hello from TypeScript!"
-     }
-     ```
+### 2. Running the Project
 
-6. **Logout**:
-   - `POST http://localhost:3000/logout`
+#### **Backend (API)**
+Starts the server at `http://localhost:3000`.
+```bash
+npm run dev
+```
 
-## Postman Testing
-Import `whatsapp_collection.json` into Postman to start testing the endpoints.
+#### **Frontend (Dashboard)**
+Starts the Vite dev server at `http://localhost:5173`.
+```bash
+cd client
+npm run dev
+```
 
-## Disclaimer
-This project is for educational purposes only. Automated use of WhatsApp is against their Terms of Service. Use at your own risk.
+---
+
+## 📡 API Reference
+
+### Authentication
+The API uses the `auth_info/` directory for session persistence. On first run, a QR code will appear in the terminal for linking.
+
+| Endpoint | Method | Description |
+| :--- | :--- | :--- |
+| `/status` | `GET` | Check if the WhatsApp session is connected. |
+| `/qr` | `GET` | Returns the current QR code image. |
+| `/logout` | `POST` | Disconnect and clear session data. |
+
+### Messaging & Contacts
+| Endpoint | Method | Description |
+| :--- | :--- | :--- |
+| `/contacts` | `GET` | List all synced WhatsApp contacts. |
+| `/messages/:phone` | `GET` | Retrieve message history for a specific contact. |
+| `/send` | `POST` | Send a text message to a specific number. |
+| `/bulk-send` | `POST` | Send messages to multiple numbers with a delay. |
+
+#### **Example: Send Message**
+`POST /send`
+```json
+{
+  "phone": "91995xxxxxxx",
+  "message": "Hello from WhatsApp API Pro!"
+}
+```
+
+---
+
+## 🛠️ Configuration
+
+### TypeScript & Build
+The project is configured to keep the root directory clean:
+- **Source**: `server.ts`, `whatsapp.ts`.
+- **Output**: All compiled files go to the `/dist` folder (ignored by Git).
+- **Tooling**: Uses `tsx` for development and `tsc` for production builds.
+
+### Git Safety
+- `contacts.json` and `messages.json` are **automatically ignored** to prevent sensitive data leaks.
+- `auth_info/` is ignored to protect your session credentials.
+
+---
+
+## 📄 License
+This project is for educational purposes only. Automated use of WhatsApp is subject to their [Terms of Service](https://www.whatsapp.com/legal/terms-of-service/). Use responsibly.
