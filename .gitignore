@@ -1,0 +1,7 @@
+node_modules/
+dist/
+creds.json
+*.log
+.env
+qr_code.png
+auth_info/

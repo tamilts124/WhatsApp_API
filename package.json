@@ -1,0 +1,33 @@
+{
+  "name": "whatsapp",
+  "version": "1.0.0",
+  "description": "A simple, unofficial WhatsApp API using Python and Playwright. It automates WhatsApp Web to provide a programmable interface for sending messages, listing contacts, and managing sessions.",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsx server.ts",
+    "dev": "tsx --watch server.ts",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@whiskeysockets/baileys": "^7.0.0-rc.9",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "link-preview-js": "^3.2.0",
+    "pino": "^8.21.0",
+    "qrcode-terminal": "^0.12.0",
+    "zod": "^4.4.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.6.0",
+    "@types/qrcode-terminal": "^0.12.2",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.3"
+  }
+}
