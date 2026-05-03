@@ -20,8 +20,11 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install --omit=dev
 
-# Copy only the compiled JavaScript from the builder stage
+# Copy the compiled JavaScript from the builder stage
 COPY --from=builder /app/dist ./dist
+
+# Optionally copy auth_info if it exists (uses glob to avoid failure if missing)
+COPY auth_inf[o] ./auth_info/
 
 # Expose the API port
 EXPOSE 3000
