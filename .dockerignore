@@ -1,0 +1,12 @@
+node_modules
+dist
+auth_info
+contacts.json
+messages.json
+creds.json
+*.log
+.git
+.env
+client
+Dockerfile
+.dockerignore
