@@ -7,3 +7,14 @@ qr_code.png
 auth_info/
 contacts.json
 messages.json
+
+# Compiled artifacts
+*.js
+*.js.map
+*.d.ts
+*.d.ts.map
+
+# Directories
+dist/
+node_modules/
+auth_info/
