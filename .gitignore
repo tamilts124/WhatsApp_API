@@ -5,3 +5,5 @@ creds.json
 .env
 qr_code.png
 auth_info/
+contacts.json
+messages.json
