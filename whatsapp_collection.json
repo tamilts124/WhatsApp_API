@@ -57,6 +57,30 @@
 			"response": []
 		},
 		{
+			"name": "List Messages",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/messages/91995xxxxxxx?count=20",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"messages",
+						"91995xxxxxxx"
+					],
+					"query": [
+						{
+							"key": "count",
+							"value": "20"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Send Message",
 			"request": {
 				"method": "POST",
@@ -78,6 +102,33 @@
 					],
 					"path": [
 						"send"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bulk Send",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"phones\": [\"91995xxxxxxx\", \"91987xxxxxxx\"],\n    \"message\": \"Bulk hello!\",\n    \"delayMs\": 2000\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/bulk-send",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"bulk-send"
 					]
 				}
 			},

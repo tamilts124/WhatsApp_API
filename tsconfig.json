@@ -41,6 +41,7 @@
     "moduleDetection": "force",
     "skipLibCheck": true,
   },
+  "exclude": ["client"],
   "ts-node": {
     "esm": true
   }

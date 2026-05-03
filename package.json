@@ -1,7 +1,7 @@
 {
   "name": "whatsapp",
   "version": "1.0.0",
-  "description": "A simple, unofficial WhatsApp API using Python and Playwright. It automates WhatsApp Web to provide a programmable interface for sending messages, listing contacts, and managing sessions.",
+  "description": "A production-grade WhatsApp API using Baileys and Express. It provides a RESTful interface for sending messages, managing contacts, and tracking history.",
   "main": "index.js",
   "scripts": {
     "start": "tsx server.ts",
