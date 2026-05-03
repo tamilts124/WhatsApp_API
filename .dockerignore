@@ -1,6 +1,5 @@
 node_modules
 dist
-auth_info
 contacts.json
 messages.json
 creds.json
